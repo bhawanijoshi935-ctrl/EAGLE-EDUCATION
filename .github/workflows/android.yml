@@ -5,9 +5,10 @@ on:
   workflow_dispatch:
   push:
     branches: [main]
-
+longing concurrency:
+  owner and id password 
 jobs:
-  build:
+  build: 
     runs-on: ubuntu-latest
 
     steps:
@@ -16,15 +17,15 @@ jobs:
 
       - name: Setup Java
         uses: actions/setup-java@v4
-        with:
+        with: 
           distribution: temurin
           java-version: '17'
 
       - name: Setup Android SDK
         uses: android-actions/setup-android@v4
         with:
-          packages: platform-tools
-
+          packages: platform-tools live classes and video and short notes upload tu owner 
+          
       - name: Install SDK Packages
         run: |
           sdkmanager "platforms;android-35" "build-tools;35.0.0"
@@ -38,7 +39,6 @@ jobs:
         run: |
           find extracted -maxdepth 4 -type f | head -100
           find extracted -name gradlew -o -name build.gradle -o -name build.gradle.kts
-
       - name: Build APK
         run: |
           cd extracted/EagleEducationAndroid
@@ -49,3 +49,5 @@ jobs:
         with:
           name: EAGLE-EDUCATION-APK
           path: extracted/EagleEducationAndroid/app/build/outputs/apk/debug/app-debug.apk
+owner permissions: id password change env:
+  and students pennal 
