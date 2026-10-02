@@ -41,18 +41,4 @@ jobs:
           and password change permission 
           and notes upload video upload and other notification option cantrol in admin 
              admin owner 
-            < div style="background: #f9f9f9; padding: 15px; border-radius: 8px; margin: 15px; border: 1px solid #ddd; text-align: center; font-family: sans-serif;">
-    <h3 style="color: #333; margin-top: 0;">Helpline & Support</h3>
-    <p style="color: #666; font-size: 14px;">यदि आपको कोई सहायता चाहिए, तो ओनर से संपर्क करें:</p>
-    <a href="tel:+918955683266" style="display: inline-block; background: #28a745; color: white; padding: 10px 20px; margin: 5px; text-decoration: none; border-radius: 5px; font-weight: bold;">📞 Call Owner</a>
-    <a href="mailto:bhawanijoshi935@gmail.com" style="display: inline-block; background: #007bff; color: white; padding: 10px 20px; margin: 5px; text-decoration: none; border-radius: 5px; font-weight: bold;">✉️ Email Owner</a>
-</div>
-
-<!-- Video Notes Section -->
-<div style="background: #fff; padding: 15px; border-radius: 8px; margin: 15px; border: 1px solid #ddd; font-family: sans-serif;">
-    <h3 style="color: #333; margin-top: 0;">📝 Video Notes</h3>
-    <textarea id="videoNotes" placeholder="वीडियो देखते समय अपने नोट्स यहाँ लिखें..." rows="4" style="width: 100%; box-sizing: border-box; padding: 10px; border: 1px solid #ccc; border-radius: 4px; resize: vertical;"></textarea>
-    <button onclick="saveNotes()" style="background: #ffc107; color: #000; border: none; padding: 10px 15px; margin-top: 8px; border-radius: 4px; cursor: pointer; font-weight: bold; width: 100%;">Save Notes</button>
-</div>
-
-<script>
+          
