@@ -1,0 +1,43 @@
+
+name: Build Eagle Education APK
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Install Android SDK
+        run: |
+          yes | sdkmanager --licenses
+          sdkmanager "platforms;android-35" "build-tools;35.0.0"
+
+      - name: Extract ZIP and Build APK
+        run: |
+          mkdir extracted
+          unzip -o ./*.zip -d extracted
+          curl -L https://services.gradle.org/distributions/gradle-8.9-bin.zip -o gradle.zip
+          unzip -q gradle.zip
+          cd extracted/EagleEducationAndroid
+          ../..//gradle-8.9/bin/gradle assembleDebug
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: EAGLE-EDUCATION-APK
+          path: extracted/EagleEducationAndroid/app/build/outputs/apk/debug/app-debug.apk
