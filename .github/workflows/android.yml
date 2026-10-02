@@ -9,6 +9,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -20,21 +21,28 @@ jobs:
           java-version: '17'
 
       - name: Setup Android SDK
-        uses: android-actions/setup-android@v3
+        uses: android-actions/setup-android@v4
+        with:
+          packages: platform-tools
 
-      - name: Install Android SDK
+      - name: Install SDK Packages
         run: |
-          yes | sdkmanager --licenses
           sdkmanager "platforms;android-35" "build-tools;35.0.0"
 
-      - name: Extract ZIP and Build APK
+      - name: Extract ZIP
         run: |
           mkdir extracted
-          unzip -o ./*.zip -d extracted
-          curl -L https://services.gradle.org/distributions/gradle-8.9-bin.zip -o gradle.zip
-          unzip -q gradle.zip
+          unzip -o EAGLE_EDUCATION_ANDROID_STUDIO_PROJECT.zip -d extracted
+
+      - name: Check Android Project
+        run: |
+          find extracted -maxdepth 4 -type f | head -100
+          find extracted -name gradlew -o -name build.gradle -o -name build.gradle.kts
+
+      - name: Build APK
+        run: |
           cd extracted/EagleEducationAndroid
-          ../..//gradle-8.9/bin/gradle assembleDebug
+          gradle assembleDebug
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
