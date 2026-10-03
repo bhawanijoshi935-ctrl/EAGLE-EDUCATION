@@ -31,13 +31,3 @@ jobs:
         with:
           name: EagleEducation-debug
           path: app/build/outputs/apk/debug/app-debug.apk
-          echo Add other actions to build,
-          echo test, and deploy your project. #owner longing pannel id and password 
-          #contect mobile number 8955683266
-          #gmail - bhawanijoshi935@gmail.com 
-          #loging id -bhawani120
-          #password-8955683266%%
-          and password change permission 
-          and notes upload video upload and other notification option cantrol in admin 
-             admin owner 
-          
