@@ -7,22 +7,8 @@ on:
     branches: [main]
 jobs:
   build: 
-    runs-on: Eagle Education App
-│
-├── Student Panel
-│   ├── Courses
-│   ├── Videos
-│   └── Notes
-│
-└── Owner Panel
-    ├── Login
-    ├── Dashboard
-    ├── Upload Video
-    ├── Upload Notes
-    ├── Manage Videos
-    ├── Manage Notes
-    └── Logout
-
+    runs-on: Eagle Education
+    
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -62,3 +48,18 @@ jobs:
           name: EAGLE-EDUCATION-APK
           path: extracted/EagleEducationAndroid/app/build/outputs/apk/debug/app-debug.apk
 owner permissions: id password change env:
+sealed class Screen(val title: String) {
+    object StudentPanel : Screen("Student Panel")
+    object Courses : Screen("Courses")
+    object Videos : Screen("Videos")
+    object Notes : Screen("Notes")
+
+    object OwnerPanel : Screen("Owner Panel")
+    object Login : Screen("Login")
+    object Dashboard : Screen("Dashboard")
+    object UploadVideo : Screen("Upload Video")
+    object UploadNotes : Screen("Upload Notes")
+    object ManageVideos : Screen("Manage Videos")
+    object ManageNotes : Screen("Manage Notes")
+    object Logout : Screen("Logout")
+}
