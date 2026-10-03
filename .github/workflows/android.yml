@@ -63,3 +63,4 @@ sealed class Screen(val title: String) {
     object ManageNotes : Screen("Manage Notes")
     object Logout : Screen("Logout")
 }
+[![.github/workflows/blank.yml](https://github.com/bhawanijoshi935-ctrl/EAGLE--EDUCATION-e/actions/workflows/blank.yml/badge.svg?event=repository_dispatch)](https://github.com/bhawanijoshi935-ctrl/EAGLE--EDUCATION-e/actions/workflows/blank.yml)
