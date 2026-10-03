@@ -5,11 +5,23 @@ on:
   workflow_dispatch:
   push:
     branches: [main]
-longing concurrency:
-  owner and id password 
 jobs:
   build: 
-    runs-on: ubuntu-latest
+    runs-on: Eagle Education App
+│
+├── Student Panel
+│   ├── Courses
+│   ├── Videos
+│   └── Notes
+│
+└── Owner Panel
+    ├── Login
+    ├── Dashboard
+    ├── Upload Video
+    ├── Upload Notes
+    ├── Manage Videos
+    ├── Manage Notes
+    └── Logout
 
     steps:
       - name: Checkout
@@ -50,81 +62,3 @@ jobs:
           name: EAGLE-EDUCATION-APK
           path: extracted/EagleEducationAndroid/app/build/outputs/apk/debug/app-debug.apk
 owner permissions: id password change env:
-  and students pennal 
-private final WebChromeClient webChromeClient = new WebChromeClient() {
-    @Override
-    public boolean onShowFileChooser(
-            WebView webView,
-            ValueCallback<Uri[]> filePathCallback,
-            FileChooserParams fileChooserParams) {
-
-        if (MainActivity.this.filePathCallback != null) {
-            MainActivity.this.filePathCallback.onReceiveValue(null);
-        }
-
-        MainActivity.this.filePathCallback = filePathCallback;
-
-        Intent intent = fileChooserParams.createIntent();
-        intent.addCategory(Intent.CATEGORY_OPENABLE);
-        intent.setType("video/*");
-
-        try {
-            startActivityForResult(intent, 1001);
-        } catch (Exception e) {
-            MainActivity.this.filePathCallback = null;
-            return false;
-        }
-        return true;
-    }
-};
-
-@Override
-protected void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-    getWindow().setStatusBarColor(Color.rgb(9, 38, 79));
-    getWindow().setNavigationBarColor(Color.rgb(9, 38, 79));
-
-    webView = new WebView(this);
-    webView.setBackgroundColor(Color.rgb(243, 246, 251));
-
-    WebSettings settings = webView.getSettings();
-    settings.setJavaScriptEnabled(true);
-    settings.setDomStorageEnabled(true);
-    settings.setAllowFileAccess(true);
-    settings.setAllowContentAccess(true);
-    settings.setMediaPlaybackRequiresUserGesture(true);
-
-    webView.setWebViewClient(new WebViewClient());
-    webView.setWebChromeClient(webChromeClient);
-
-    setContentView(webView);
-    webView.loadUrl("file:///android_asset/index.html");
-}
-
-@Override
-protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-    super.onActivityResult(requestCode, resultCode, data);
-
-    if (requestCode == 1001 && filePathCallback != null) {
-        Uri[] results = null;
-
-        if (resultCode == RESULT_OK && data != null) {
-            Uri uri = data.getData();
-            if (uri != null) {
-                results = new Uri[]{uri};
-            }
-        }
-
-        filePathCallback.onReceiveValue(results);
-        filePathCallback = null;
-    }
-}
-
-@Override
-public void onBackPressed() {
-    if (webView != null && webView.canGoBack()) {
-        webView.goBack();
-    } else {
-        super.onBackPressed();
-    }
-}
